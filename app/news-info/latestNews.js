@@ -2,18 +2,22 @@
 import { useSelector, useDispatch } from "react-redux";
 import { newsUpdate } from "../redux/news/NewsSlice";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const LatestNews = () => {
   const { latestNews } = useSelector((store) => store.news);
   const dispatch = useDispatch();
+  const router = useRouter();
 
-  const viewCount = (e, news) => {
+  const handleclick = (news) => {
+    router.push(`/news-info/${news.slugUrl}`);
     const formData = {
       newsid: news._id,
       _id: news._id,
       numberofViews: Number(news.numberofViews) + 1,
     };
     dispatch(newsUpdate(formData));
+
   };
   return (
     <>
@@ -34,35 +38,36 @@ const LatestNews = () => {
                     <li
                       className="clearfix col-lg-3 col-md-4 col-sm-6 my-1"
                       key={news._id}
+                      style={{ cursor: "pointer" }} onClick={() => handleclick(news)}
                     >
                       <div className="utf_post_block_style clearfix">
                         {/* <Link
                           href={`/news-post-info/${news.slugUrl}`}
                           onClick={(e) => viewCount(e, news)}
                         > */}
-                          <div
-                            className="utf_post_thumb"
-                            style={{ position: "relative" }}
-                          >
-                            <a style={{ cursor: "pointer" }}>
-                              <img
-                                className="img-fluid"
-                                src={news.thumbnail}
-                                alt=""
-                              />
-                            </a>
+                        <div
+                          className="utf_post_thumb"
+                          style={{ position: "relative" }}
+                        >
+                          <a style={{ cursor: "pointer" }}>
                             <img
-                              style={{
-                                position: "absolute",
-                                top: 0,
-                                right: 3,
-                                height: "60px",
-                                width: "100px",
-                              }}
-                              src="assets/images/transpimg.png"
+                              className="img-fluid"
+                              src={news.thumbnail}
                               alt=""
                             />
-                          </div>
+                          </a>
+                          <img
+                            style={{
+                              position: "absolute",
+                              top: 0,
+                              right: 3,
+                              height: "60px",
+                              width: "100px",
+                            }}
+                            src="assets/images/transpimg.png"
+                            alt=""
+                          />
+                        </div>
                         {/* </Link> */}
 
                         <div className="utf_post_content">
@@ -74,7 +79,7 @@ const LatestNews = () => {
                               href={`/news-post-info/${news.slugUrl}`}
                               onClick={(e) => viewCount(e, news)}
                             > */}
-                              <a>{news.newsTitle}</a>
+                            <a>{news.newsTitle}</a>
                             {/* </Link> */}
                           </h2>
                         </div>

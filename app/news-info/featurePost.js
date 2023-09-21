@@ -18,17 +18,17 @@ const FeaturePost = () => {
   } = useSelector((store) => store.news);
   const dispatch = useDispatch();
   const router = useRouter();
-  const viewCount = (e, news) => {
+
+
+  const handleclick = (news) => {
+    router.push(`/news-info/${news.slugUrl}`);
     const formData = {
       newsid: news._id,
       _id: news._id,
       numberofViews: Number(news.numberofViews) + 1,
     };
     dispatch(newsUpdate(formData));
-  };
 
-  const handleclick = (news) => {
-    router.push(`/news-info/${news.slugUrl}`);
   };
 
   return (
@@ -40,15 +40,15 @@ const FeaturePost = () => {
               <Swiper
                 draggable={true}
                 spaceBetween={10}
-                // modules={Autoplay}
-                // autoplay={{
-                //   delay: 2000,
-                //   disableOnInteraction: false,
-                //   pauseOnMouseEnter: true,
-                // }}
+              // modules={Autoplay}
+              // autoplay={{
+              //   delay: 2000,
+              //   disableOnInteraction: false,
+              //   pauseOnMouseEnter: true,
+              // }}
               >
                 {sliderNews.map((news, index) => (
-                  <SwiperSlide  key={news._id}>
+                  <SwiperSlide key={news._id}>
                     <div
                       id="utf_featured_slider"
                       className="utf_featured_slider"
@@ -87,6 +87,8 @@ const FeaturePost = () => {
                     <div
                       className="utf_post_overaly_style contentTop hot-post-top clearfix"
                       key={news._id}
+                      onClick={() => handleclick(news)}
+                      style={{ cursor: "pointer" }}
                     >
                       {/* <Link
                         href={`/news-post-info/${news.slugUrl}`}
@@ -117,6 +119,8 @@ const FeaturePost = () => {
                     <div
                       className="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix"
                       key={news._id}
+                      onClick={() => handleclick(news)}
+                      style={{ cursor: "pointer" }}
                     >
                       <div className="utf_post_thumb">
                         <a>
@@ -142,6 +146,8 @@ const FeaturePost = () => {
                     <div
                       className="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix"
                       key={news._id}
+                      onClick={() => handleclick(news)}
+                      style={{ cursor: "pointer" }}
                     >
                       <div className="utf_post_thumb">
                         <a>

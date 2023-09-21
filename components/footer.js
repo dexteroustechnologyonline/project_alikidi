@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { newsUpdate } from "../app/redux/news/NewsSlice";
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
   const { foodNewsThree } = useSelector((store) => store.news);
@@ -10,14 +11,17 @@ const Footer = () => {
 
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
-  const viewCount = (e, news) => {
+  const handleclick = (news) => {
+    router.push(`/news-info/${news.slugUrl}`);
     const formData = {
       newsid: news._id,
       _id: news._id,
       numberofViews: Number(news.numberofViews) + 1,
     };
     dispatch(newsUpdate(formData));
+
   };
 
   return (
@@ -105,7 +109,7 @@ const Footer = () => {
                 <div className="utf_list_post_block">
                   <ul className="utf_list_post">
                     {foodNewsThree.map((news) => (
-                      <li className="clearfix" key={news._id}>
+                      <li className="clearfix" key={news._id} style={{ cursor: "pointer" }} onClick={() => handleclick(news)}>
                         <div className="utf_post_block_style post-float clearfix">
                           <div className="utf_post_thumb">
                             <a>
@@ -118,12 +122,7 @@ const Footer = () => {
                           </div>
                           <div className="utf_post_content">
                             <h2 className="utf_post_title title-small">
-                              {/* <Link
-                                href={`/news-post-info/${news.slugUrl}`}
-                                onClick={(e) => viewCount(e, news)}
-                              > */}
                               <a>{news.newsTitle}</a>
-                              {/* </Link> */}
                             </h2>
                           </div>
                         </div>

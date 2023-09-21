@@ -10,6 +10,7 @@ import { WhatsappIcon, WhatsappShareButton } from "react-share";
 import { newsUpdate, updateNewsComment } from "../redux/news/NewsSlice";
 import { Baseurl } from "../../config/BaseUrl";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const NewsDetails = ({ newsitem, newsUrl }) => {
     const { latestFourNews, latestNews } = useSelector(
@@ -488,7 +489,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
                                                                         style={{ cursor: "pointer" }}
                                                                     >
                                                                         <Link
-                                                                            href={`/news-post-info/${news.slugUrl}`}
+                                                                            href={`/news-info/${news.slugUrl}`}
                                                                             onClick={(e) => viewCount(e, news)}
                                                                         >
                                                                             {news.newsTitle}
@@ -654,7 +655,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
                                                 <li className="clearfix" key={index}>
                                                     <div className="utf_post_block_style post-float clearfix">
                                                         <Link
-                                                            href={`/news-post-info/${news.slugUrl}`}
+                                                            href={`/news-info/${news.slugUrl}`}
                                                             onClick={(e) => viewCount(e, news)}
                                                         >
                                                             <div className="utf_post_thumb">
@@ -675,7 +676,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
                                                         <div className="utf_post_content">
                                                             <h2 className="utf_post_title title-small">
                                                                 <Link
-                                                                    href={`/news-post-info/${news.slugUrl}`}
+                                                                    href={`/news-info/${news.slugUrl}`}
                                                                     onClick={(e) => viewCount(e, news)}
                                                                 >
                                                                     {news.newsTitle}
