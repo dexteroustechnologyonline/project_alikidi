@@ -184,7 +184,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
                                                                     style={{ verticalAlign: "middle" }}
                                                                 />
                                                                 <span className="ts-social-title">
-                                                                    WHAT'S APP
+                                                                    {` WHAT'S APP`}
                                                                 </span>
                                                             </WhatsappShareButton>
                                                         </a>
@@ -245,11 +245,11 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
                                         //   Autoplay,
                                         // ]}
                                         loop={true}
-                                        autoplay={{
-                                            delay: 2000,
-                                            disableOnInteraction: false,
-                                            pauseOnMouseEnter: true,
-                                        }}
+                                        // autoplay={{
+                                        //     delay: 2000,
+                                        //     disableOnInteraction: false,
+                                        //     pauseOnMouseEnter: true,
+                                        // }}
                                         className="homeSlider mt-2"
                                     >
                                         {newsSlider1.map((image, index) => (
@@ -362,7 +362,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
                                                         <a href={`${whatsappMassage}`} target="_blank">
                                                             <i className="fa fa-whatsapp" />
                                                             <span className="ts-social-title">
-                                                                what's app
+                                                                {`what's app`}
                                                             </span>
                                                         </a>
                                                     </li>
@@ -435,13 +435,13 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
                                         <Swiper
                                             draggable={true}
                                             spaceBetween={10}
-                                            modules={Autoplay}
+                                            // modules={Autoplay}
                                             // loop={true}
-                                            autoplay={{
-                                                delay: 2000,
-                                                disableOnInteraction: false,
-                                                pauseOnMouseEnter: true,
-                                            }}
+                                            // autoplay={{
+                                            //     delay: 2000,
+                                            //     disableOnInteraction: false,
+                                            //     pauseOnMouseEnter: true,
+                                            // }}
                                             breakpoints={{
                                                 360: {
                                                     slidesPerView: 2,

@@ -425,6 +425,7 @@ const Page = () => {
                                     width: "135px",
                                     margin: "3px",
                                   }}
+                                  key={image._id}
                                 >
                                   <img
                                     src={image}

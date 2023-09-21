@@ -117,14 +117,14 @@ const Page = () => {
                   <div className="utf_list_post_block">
                     <ul className="utf_list_post">
                       {latestFourNews.map((news) => (
-                        <li className="clearfix">
+                        <li className="clearfix" key={news._id}>
                           <div className="utf_post_block_style post-float clearfix">
                             <div className="utf_post_thumb">
                               <a>
                                 <img
                                   className="img-fluid"
                                   src={news.thumbnail}
-                                  alt
+                                  alt=""
                                 />
                               </a>
                               <a className="utf_post_cat">{news.category}</a>

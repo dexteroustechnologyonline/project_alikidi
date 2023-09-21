@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { newsUpdate } from "../redux/news/NewsSlice";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from 'next/image'
 
 const FeaturePost = () => {
   const {
@@ -39,19 +40,19 @@ const FeaturePost = () => {
               <Swiper
                 draggable={true}
                 spaceBetween={10}
-                modules={Autoplay}
-                autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
+                // modules={Autoplay}
+                // autoplay={{
+                //   delay: 2000,
+                //   disableOnInteraction: false,
+                //   pauseOnMouseEnter: true,
+                // }}
               >
                 {sliderNews.map((news, index) => (
-                  <SwiperSlide>
+                  <SwiperSlide  key={news._id}>
                     <div
                       id="utf_featured_slider"
                       className="utf_featured_slider"
-                      key={index}
+                      key={news._id}
                     >
                       <div className="item" style={{ cursor: "pointer" }} onClick={() => handleclick(news)}>
                         {/* <Link
@@ -85,7 +86,7 @@ const FeaturePost = () => {
                   {healthNewsOne.map((news, index) => (
                     <div
                       className="utf_post_overaly_style contentTop hot-post-top clearfix"
-                      key={index}
+                      key={news._id}
                     >
                       {/* <Link
                         href={`/news-post-info/${news.slugUrl}`}
@@ -115,7 +116,7 @@ const FeaturePost = () => {
                   {foodNewsOne.map((news, index) => (
                     <div
                       className="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix"
-                      key={index}
+                      key={news._id}
                     >
                       <div className="utf_post_thumb">
                         <a>
@@ -140,7 +141,7 @@ const FeaturePost = () => {
                   {foodNewsOne.map((news, index) => (
                     <div
                       className="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix"
-                      key={index}
+                      key={news._id}
                     >
                       <div className="utf_post_thumb">
                         <a>

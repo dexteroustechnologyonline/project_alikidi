@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
 import { newsUpdate } from "../redux/news/NewsSlice";
 import Link from "next/link";
@@ -547,13 +548,13 @@ const CategoryOne = () => {
                   <Swiper
                     draggable={true}
                     spaceBetween={10}
-                    modules={Autoplay}
+                    // modules={Autoplay}
                     // loop={true}
-                    autoplay={{
-                      delay: 2000,
-                      disableOnInteraction: false,
-                      pauseOnMouseEnter: true,
-                    }}
+                    // autoplay={{
+                    //   delay: 2000,
+                    //   disableOnInteraction: false,
+                    //   pauseOnMouseEnter: true,
+                    // }}
                   >
                     {latestFourNews.map((news, index) => (
                       <SwiperSlide key={index}>
@@ -629,13 +630,13 @@ const CategoryOne = () => {
                   <Swiper
                     draggable={true}
                     spaceBetween={10}
-                    modules={Autoplay}
+                    // modules={Autoplay}
                     // loop={true}
-                    autoplay={{
-                      delay: 2000,
-                      disableOnInteraction: false,
-                      pauseOnMouseEnter: true,
-                    }}
+                    // autoplay={{
+                    //   delay: 2000,
+                    //   disableOnInteraction: false,
+                    //   pauseOnMouseEnter: true,
+                    // }}
                   >
                     {technologyNewsFour.map((news, index) => (
                       <SwiperSlide key={index}>
