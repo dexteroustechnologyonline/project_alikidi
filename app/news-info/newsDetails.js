@@ -36,7 +36,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
     const [newsSingle, setNewsSingle] = useState(newsitem);
     const [newsSlider1, setnewsSlider1] = useState(newsitem.slider);
     const [errorMassage, setErrorMassage] = useState("");
-    const [whatsappMassage, setWhatsappMassage] = useState(`http://localhost:3000/news-info/${newsUrl}`);
+    const [whatsappMassage, setWhatsappMassage] = useState(`https://project-alikidi.vercel.app/news-info/${newsUrl}`);
     const [whatsappMas, setWhatsappMas] = useState("");
     const [name, setName] = useState(loginData.name);
     const [email, setEmail] = useState(loginData.email);
