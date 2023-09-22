@@ -10,13 +10,6 @@ const SlidingCategory = () => {
 
   const handleclick = (news) => {
     router.push(`/news-info/${news.slugUrl}`);
-    const formData = {
-      newsid: news._id,
-      _id: news._id,
-      numberofViews: Number(news.numberofViews) + 1,
-    };
-    dispatch(newsUpdate(formData));
-
   };
   return (
     <>

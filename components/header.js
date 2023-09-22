@@ -8,6 +8,7 @@ import {
   authActions,
   notificationstatusSet,
 } from "../app/redux/Athentication/AuthSlice";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const { allCategorys } = useSelector((store) => store.category);
@@ -17,10 +18,15 @@ const Header = () => {
 
   const [status, setStatus] = useState(false);
   const [show, setShow] = useState(true);
+  const router = useRouter();
 
   const signout = () => {
     dispatch(authActions.signout());
     navigate("/");
+  };
+  const redirectCat = (e,category) => {
+    setShow(!show)
+    router.push(`/category/${category.slugUrl}`);
   };
 
   const [showButton, setShowButton] = useState(false);
@@ -216,7 +222,7 @@ const Header = () => {
                     </>
                   ) : (
                     <>
-                      <Link href="/">
+                      <Link href="/mobile-category">
                         <span className="navbar-toggler-icon" />
                       </Link>
                     </>
@@ -229,7 +235,7 @@ const Header = () => {
                     !show
                       ? "navbar-collapse navbar-responsive-collapse collapse "
                       : //show
-                        "navbar-collapse navbar-responsive-collapse collapse "
+                      "navbar-collapse navbar-responsive-collapse collapse "
                   }
                 >
                   <ul className="nav navbar-nav">
@@ -250,7 +256,8 @@ const Header = () => {
                         {/* <Link href={`/category/${categ.slugUrl}`}> */}
                         <a
                           style={{ cursor: "pointer" }}
-                          onClick={() => setShow(!show)}
+
+                          onClick={(e) => redirectCat(e, categ)}
                         >
                           {categ.name}
                         </a>

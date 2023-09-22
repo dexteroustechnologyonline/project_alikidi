@@ -1,8 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 const Page = () => {
   const { allCategorys } = useSelector((store) => store.category);
+  const router = useRouter();
+  
+  const redirectCat = (e, category) => {
+    router.push(`/category/${category.slugUrl}`);
+  };
 
   return (
     <>
@@ -13,11 +19,11 @@ const Page = () => {
         >
           {allCategorys &&
             allCategorys.map((category, index) => (
-              <div className="catmbContain" key={category._id}>
+              <div className="catmbContain" key={category._id} style={{ cursor: "pointer" }} onClick={(e) => redirectCat(e, category)}>
                 <div className="catdiv">
                   {/* <Link href={`/category/${category.slugUrl}`}> */}
-                    <img src={category.thumbnail} alt="cat-img" />
-                    <h6 className="imagename">{category.name}</h6>
+                  <img src={category.thumbnail} alt="cat-img" />
+                  <h6 className="imagename">{category.name}</h6>
                   {/* </Link> */}
                 </div>
               </div>

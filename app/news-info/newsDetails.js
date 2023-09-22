@@ -20,19 +20,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
     const { universalTags } = useSelector((store) => store.universaltag);
     const { loginData } = useSelector((store) => store.auth);
 
-    // let newsSingle = {};
-    // let newsSlider1 = [];
-    // let errorMassage1 = "";
-    // let whatsappMassage1 = "";
-    // let whatsappMas1 = "";
-    // let name1 = loginData.name;
-    // let email1 = loginData.email;
-    // let mobile1 = loginData.mobile;
-    // let shareShow1 = false;
-    // let comment1 = "";
-    // let youtubeLink1 = "";
-    // let twitterLink1 = "";
-    // let commentArray1 = [];
+
 
     const [newsSingle, setNewsSingle] = useState(newsitem);
     const [newsSlider1, setnewsSlider1] = useState(newsitem.slider);

@@ -24,6 +24,10 @@ const Footer = () => {
 
   };
 
+  const redirectCat = (e, category) => {
+    router.push(`/category/${category.slugUrl}`);
+  };
+
   return (
     <>
       {/* Footer Start */}
@@ -92,14 +96,14 @@ const Footer = () => {
                 <h3 className="widget-title">Popular Categories</h3>
                 <ul>
                   {allCategorys.map((cat) => (
-                    <li key={cat._id}>
+                    <li key={cat._id} style={{ cursor: "pointer" }} onClick={(e) => redirectCat(e, cat)}>
                       <i className="fa fa-angle-double-right" />
-                      {/* <Link href={`/category/${cat.slugUrl}`}> */}
+
                       <a>
                         <span className="catTitle">{cat.name}</span>
                         <span className="catCounter"> </span>
                       </a>
-                      {/* </Link> */}
+
                     </li>
                   ))}
                 </ul>
