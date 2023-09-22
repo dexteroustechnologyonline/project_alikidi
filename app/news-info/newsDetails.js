@@ -13,15 +13,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const NewsDetails = ({ newsitem, newsUrl }) => {
+
+    console.log(newsUrl, "newsUrl");
+    
     const { latestFourNews, latestNews } = useSelector(
         (store) => store.news
     );
 
     const { universalTags } = useSelector((store) => store.universaltag);
     const { loginData } = useSelector((store) => store.auth);
-
-
-
     const [newsSingle, setNewsSingle] = useState(newsitem);
     const [newsSlider1, setnewsSlider1] = useState(newsitem.slider);
     const [errorMassage, setErrorMassage] = useState("");

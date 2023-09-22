@@ -9,8 +9,6 @@ import "../styles/assets/css/owl.carousel.min.css";
 import "../styles/assets/css/owl.theme.default.min.css";
 import "../styles/assets/css/responsive.css";
 import "../styles/assets/css/style.css";
-import Favicon from '../public/favlogoico300x300.jpg'
-
 import Layout from "../components/layout";
 import { Providers } from "./provider";
 
