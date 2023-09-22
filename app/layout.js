@@ -20,7 +20,7 @@ export const metadata = {
     template: "%s | Alikidi.com",
   },
   description: "సామాన్యుని గుండె చప్పుడు..... అలికిడి",
-  icons: [{ rel: 'icon', url: Favicon.src }],
+  // icons: [{ rel: 'icon', url: Favicon.src }],
 };
 
 export default function RootLayout({ children }) {
