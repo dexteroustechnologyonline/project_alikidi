@@ -1,3 +1,4 @@
+import { Baseurl } from "../../../config/BaseUrl";
 import { newsByslugurl } from "../../../utils/news";
 import NewsDetails from "../newsDetails";
 
@@ -27,7 +28,9 @@ export async function generateMetadata({ params }) {
     }
 
 }
-export async function getServerSideProps({ params }) {
+
+
+export default async function NewsInfo({ params }) {
     let newsUrl = "";
     let fetchnews = {};
     try {
@@ -42,25 +45,6 @@ export async function getServerSideProps({ params }) {
     }
 
     const singlenews = fetchnews.news[0]
-    return { props: { singlenews, newsUrl } }
-}
-
-export default async function NewsInfo({ singlenews, newsUrl }) {
-    // let newsUrl = "";
-    // let fetchnews = {};
-    // try {
-    //     newsUrl = decodeURIComponent(params.newsinfo);
-    //     fetchnews = await newsByslugurl(newsUrl);
-    // } catch (error) {
-
-    // }
-    // if (!fetchnews) {
-    //     newsUrl = params.newsinfo;
-    //     fetchnews = await newsByslugurl(newsUrl);
-    // }
-
-    // const singlenews = fetchnews.news[0]
-
     return (
         <>
             <NewsDetails newsitem={singlenews} newsUrl={newsUrl} />
