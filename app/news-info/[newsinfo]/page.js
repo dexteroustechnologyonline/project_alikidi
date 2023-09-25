@@ -2,19 +2,19 @@ import { newsByslugurl } from "../../../utils/news";
 import NewsDetails from "../newsDetails";
 
 export async function generateMetadata({ params }) {
-    let newsUrl ="";
+    let newsUrl = "";
     let fetchnews = {};
     try {
-        newsUrl = decodeURIComponent(params.newsinfo); 
+        newsUrl = decodeURIComponent(params.newsinfo);
         fetchnews = await newsByslugurl(newsUrl);
     } catch (error) {
-        
+
     }
     if (!fetchnews) {
-        newsUrl = params.newsinfo; 
+        newsUrl = params.newsinfo;
         fetchnews = await newsByslugurl(newsUrl);
     }
-    
+
     const singlenews = fetchnews.news[0]
     return {
         title: `${singlenews.newsTitle}`,
@@ -30,8 +30,19 @@ export async function generateMetadata({ params }) {
 
 
 export default async function NewsInfo({ params }) {
-    const newsUrl = decodeURIComponent(params.newsinfo);
-    const fetchnews = await newsByslugurl(newsUrl);
+    let newsUrl = "";
+    let fetchnews = {};
+    try {
+        newsUrl = decodeURIComponent(params.newsinfo);
+        fetchnews = await newsByslugurl(newsUrl);
+    } catch (error) {
+
+    }
+    if (!fetchnews) {
+        newsUrl = params.newsinfo;
+        fetchnews = await newsByslugurl(newsUrl);
+    }
+
     const singlenews = fetchnews.news[0]
 
     return (
