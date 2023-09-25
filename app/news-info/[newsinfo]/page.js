@@ -27,9 +27,7 @@ export async function generateMetadata({ params }) {
     }
 
 }
-
-
-export default async function NewsInfo({ params }) {
+export async function getServerSideProps({ params }) {
     let newsUrl = "";
     let fetchnews = {};
     try {
@@ -44,6 +42,24 @@ export default async function NewsInfo({ params }) {
     }
 
     const singlenews = fetchnews.news[0]
+    return { props: { singlenews, newsUrl } }
+}
+
+export default async function NewsInfo({ singlenews, newsUrl }) {
+    // let newsUrl = "";
+    // let fetchnews = {};
+    // try {
+    //     newsUrl = decodeURIComponent(params.newsinfo);
+    //     fetchnews = await newsByslugurl(newsUrl);
+    // } catch (error) {
+
+    // }
+    // if (!fetchnews) {
+    //     newsUrl = params.newsinfo;
+    //     fetchnews = await newsByslugurl(newsUrl);
+    // }
+
+    // const singlenews = fetchnews.news[0]
 
     return (
         <>
