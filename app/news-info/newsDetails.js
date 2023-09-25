@@ -13,9 +13,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const NewsDetails = ({ newsitem, newsUrl }) => {
-
-    console.log(newsUrl, "newsUrl");
-    
     const { latestFourNews, latestNews } = useSelector(
         (store) => store.news
     );
@@ -46,6 +43,7 @@ const NewsDetails = ({ newsitem, newsUrl }) => {
         };
         dispatch(newsUpdate(formData));
     };
+    
     const submit = async (e) => {
         e.preventDefault();
         if (loginData.isAuth === true) {

@@ -1,7 +1,9 @@
+import { Baseurl } from "../../config/BaseUrl";
+
 export const newsByslugurl = async (slugurl) => {
     try {
         const res = await fetch(
-            `https://alikidi.dexteroustechnology.in/api/v1/news/findbyurl/${slugurl}`,
+            `${Baseurl}/api/v1/news/findbyurl/${slugurl}`,
             {
                 method: "GET",
                 cache: "no-store",

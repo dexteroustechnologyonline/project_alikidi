@@ -9,6 +9,8 @@ import "../styles/assets/css/owl.carousel.min.css";
 import "../styles/assets/css/owl.theme.default.min.css";
 import "../styles/assets/css/responsive.css";
 import "../styles/assets/css/style.css";
+import Favicon from '../public/favlogoico300x300.jpg'
+
 import Layout from "../components/layout";
 import { Providers } from "./provider";
 
@@ -18,7 +20,7 @@ export const metadata = {
     template: "%s | Alikidi.com",
   },
   description: "సామాన్యుని గుండె చప్పుడు..... అలికిడి",
-  // icons: [{ rel: 'icon', url: Favicon.src }],
+  icons: [{ rel: 'icon', url: Favicon.src }],
 };
 
 export default function RootLayout({ children }) {

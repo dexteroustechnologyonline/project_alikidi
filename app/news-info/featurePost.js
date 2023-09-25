@@ -21,7 +21,8 @@ const FeaturePost = () => {
 
 
   const handleclick = (news) => {
-    router.push(`/news-info/${news.slugUrl}`);
+    const newsUrl = decodeURIComponent(news.slugUrl);
+    router.push(`/news-info/${newsUrl}`);
   };
 
   return (
