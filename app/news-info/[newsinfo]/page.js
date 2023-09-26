@@ -1,5 +1,5 @@
 import { Baseurl } from "../../../config/BaseUrl";
-import { newsByslugurl } from "../../../utils/news";
+import { newsByslugurl, newsvisitUpdate } from "../../../utils/news";
 import NewsDetails from "../newsDetails";
 
 export async function generateMetadata({ params }) {
@@ -14,8 +14,9 @@ export async function generateMetadata({ params }) {
     if (!fetchnews) {
         newsUrl = params.newsinfo;
         fetchnews = await newsByslugurl(newsUrl);
-    }
 
+    }
+    const updateVisit = await newsvisitUpdate(fetchnews.news[0]._id)
     const singlenews = fetchnews.news[0]
     return {
         title: `${singlenews.newsTitle}`,
